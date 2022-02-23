@@ -1,6 +1,10 @@
 {
   "irisVersion": "0.3.2",
-  "projects": [],
+  "projects": [
+    {
+      "directory": "packages/localization-website"
+    }
+  ],
   "plugins": [
     {
       "packageName": "@rainspell/iris-plugin-policies",

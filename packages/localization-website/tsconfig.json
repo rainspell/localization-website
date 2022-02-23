@@ -1,0 +1,19 @@
+{
+  "extends": "./node_modules/@rainspell/roy-plugin-typescript/dist/config/lib.tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020", "DOM"],
+    "baseUrl": "./",
+    "paths": {
+      "@assets": [
+        "src/assets/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "typings/*.d.ts"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@rainspell/localization-website",
+  "version": "0.0.0",
+  "description": "Localization website",
+  "license": "UNLICENSED",
+  "keywords": [
+    "vue"
+  ],
+  "author": {
+    "name": "Rainspell",
+    "email": "info@rainspell.dev",
+    "url": "https://rainspell.dev/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alopezrainspell/localization-website"
+  },
+  "bugs": "https://github.com/rainspell/project-templates/issues",
+  "scripts": {
+    "develop": "roy run develop",
+    "build": "roy run build",
+    "lint": "roy run lint",
+    "lint:fix": "roy run lint:fix"
+  },
+  "dependencies": {
+    "@rainspell/utils": "~0.8.1",
+    "pinia": "~2.0.11",
+    "vue": "~3.2.31",
+    "vue-router": "~4.0.12"
+  },
+  "devDependencies": {
+    "@rainspell/roy": "~0.8.2",
+    "@rainspell/roy-plugin-typescript": "~0.15.0",
+    "@vitejs/plugin-vue": "~2.2.0",
+    "@vue/compiler-sfc": "~3.2.31",
+    "autoprefixer": "~10.4.2",
+    "postcss": "~8.4.6",
+    "stylelint": "~14.1.0",
+    "tailwindcss": "~3.0.23",
+    "vite": "~2.8.3"
+  }
+}
