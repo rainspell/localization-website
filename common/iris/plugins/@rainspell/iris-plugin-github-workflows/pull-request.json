@@ -1,0 +1,53 @@
+{
+  "name": "Pull Request",
+  "on": {
+    "pull_request": {
+      "types": ["opened", "synchronize", "reopened"],
+      "branches": ["master"]
+    }
+  },
+  "jobs": {
+    "validation": {
+      "extends": "common/jobs/setup-iris.json",
+      "steps": [
+        {
+          "name": "Sanity checks",
+          "run": [
+            "iris policy verify",
+            "iris change verify"
+          ]
+        }
+      ]
+    },
+    "build": {
+      "extends": "common/jobs/setup-iris.json",
+      "strategy": {
+        "matrix": {
+          "os": ["ubuntu-18.04", "windows-2019", "macos-10.15"],
+          "node-version": [14],
+          "architecture": ["x64"]
+        }
+      },
+      "steps": [
+        {
+          "name": "Build",
+          "run": "iris build"
+        }
+      ]
+    },
+    "publish-previews": {
+      "extends": "common/jobs/setup-iris.json",
+      "needs": ["build", "validation"],
+      "steps": [
+        {
+          "name": "Publish package previews",
+          "extends": [
+            "common/secrets/npm-write.json",
+            "common/secrets/github.json"
+          ],
+          "run": "iris rainspell package publish-preview"
+        }
+      ]
+    }
+  }
+}

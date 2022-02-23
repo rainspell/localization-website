@@ -1,0 +1,46 @@
+{
+  "mergeStrategy": "squash",
+  "projects": [],
+  "render": {
+    "header": [
+      "# Changelog {{ PACKAGE_NAME }}\n\n"
+    ],
+    "footer": [
+      "---\n",
+      "© {{ YEAR }} Rainspell 🌧️"
+    ],
+    "order": [
+      "breaking",
+      "feature",
+      "fix",
+      "..."
+    ]
+  },
+  "changeTypes": {
+    "breaking": {
+      "title": "🔥 Breaking Changes",
+      "bumpType": "major",
+      "description": "For changes that affect backwards compatibility"
+    },
+    "feature": {
+      "title": "🥂 New Features",
+      "bumpType": "minor",
+      "description": "For new features that do not break compatibility"
+    },
+    "fix": {
+      "title": "🦗 Bug Fixes",
+      "bumpType": "patch",
+      "description": "For changes that fix a bug"
+    },
+    "documentation": {
+      "title": "📘 Documentation",
+      "bumpType": "none",
+      "description": "For changes that deal with project documentation"
+    },
+    "maintenance": {
+      "title": "⛏️ Maintenance",
+      "bumpType": "patch",
+      "description": "For changes that affect project dependencies, configuration files, etc."
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "irisVersion": "0.3.2",
+  "projects": [],
+  "plugins": [
+    {
+      "packageName": "@rainspell/iris-plugin-policies",
+      "version": "0.3.0",
+      "options": {
+        "nodeVersion": ">=14.15.0 <15.0.0",
+        "ensureNodeLtsVersion": true,
+        "ensureConsistentPackageVersions": true,
+        "git": {
+          "emailDomain": "rainspell.dev"
+        },
+        "projectDirectoryDepth": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    },
+    {
+      "packageName": "@rainspell/iris-plugin-releases",
+      "version": "0.3.0",
+      "options": {
+        "config": "common/iris/plugins/@rainspell/iris-plugin-releases/config.json"
+      }
+    },
+    {
+      "packageName": "@rainspell/iris-plugin-readme",
+      "version": "0.3.0"
+    },
+    {
+      "packageName": "@rainspell/iris-plugin-github-workflows",
+      "version": "0.3.1",
+      "options": {
+        "verifyWorkflowsOnPush": true
+      }
+    }
+  ]
+}

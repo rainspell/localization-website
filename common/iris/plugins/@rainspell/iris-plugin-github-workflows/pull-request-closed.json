@@ -1,0 +1,37 @@
+{
+  "name": "Pull Request Closed",
+  "on": {
+    "pull_request": {
+      "types": ["closed"],
+      "branches": ["master"]
+    }
+  },
+  "jobs": {
+    "squash-release": {
+      "extends": "common/jobs/setup-iris.json",
+      "if": "${{ github.event.pull_request.merged == true }}",
+      "steps": [
+        {
+          "name": "Squash changes",
+          "extends": "common/secrets/github.json",
+          "run": "iris rainspell release squash"
+        }
+      ]
+    },
+    "delete-previews": {
+      "extends": "common/jobs/setup-iris.json",
+      "if": "always()",
+      "needs": ["squash-release"],
+      "steps": [
+        {
+          "name": "Delete package previews",
+          "extends": [
+            "common/secrets/npm-write.json",
+            "common/secrets/github.json"
+          ],
+          "run": "iris rainspell package delete-preview"
+        }
+      ]
+    }
+  }
+}
