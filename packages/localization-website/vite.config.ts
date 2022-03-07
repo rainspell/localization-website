@@ -17,9 +17,8 @@ function createAlias(): Alias[] {
     if (!fs.lstatSync(absolutePath).isDirectory()) continue;
     if (record !== 'assets' && !fs.existsSync(path.join(absolutePath, 'index.ts'))) continue;
 
-    console.log(`Create alias @${record}`);
     alias.push({
-      find: `@${record}`,
+      find: `@/${record}`,
       replacement: record === 'assets'
         ? path.join(absolutePath, '')
         : path.join(absolutePath, 'index.ts')

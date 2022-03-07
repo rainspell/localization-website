@@ -39,7 +39,7 @@ export function updateTsconfigPaths(): Task {
         continue;
       }
 
-      tsconfig.compilerOptions.paths[`@${rootDir}`] = rootDir === 'assets'
+      tsconfig.compilerOptions.paths[`@/${rootDir}`] = rootDir === 'assets'
         ? [`${relativePath}/*`]
         : [`${relativePath}/index.ts`];
     }

@@ -1,22 +1,65 @@
 <template>
-  <div class="text-lg">
-    <h1 class="font-bold">Vue App Template</h1>
-    <p>Version: {{ version }}</p>
-    <p>
-      Count: {{ counter.count }}
-      <button class="px-2 border rounded" @click="counter.increment()">
-        Increment
+  <div class="px-5 text-lg">
+    <section class="py-2 flex items-center space-x-2">
+      <label>Category</label>
+      <select v-model="currentCategory">
+        <option
+          v-for="category of categoryStore.categories"
+          :key="category.id"
+          :value="category.id"
+        >
+          {{ category.name }}
+        </option>
+      </select>
+
+      <button
+        class="px-2 py-1 text-sm border rounded"
+        :disabled="categoryStore.categories.length <= 1"
+        @click="categoryStore.delete(currentCategory); currentCategory = categoryStore.categories[0].id"
+      >
+        Delete Category
       </button>
-      <button class="px-2 border rounded" @click="counter.$patch({ count: 0 })">
-        Reset
+
+      <span>Key</span>
+
+      <input
+        v-model="keyId"
+        class="border rounded"
+      >
+
+      <button
+        class="px-2 py-1 text-sm border rounded"
+        :disabled="keyId.length === 0"
+        @click="store.add(keyId, currentCategory, 'text')"
+      >
+        Add
       </button>
-    </p>
+    </section>
+
+    <section>
+      <p>Keys ({{ keys.length }})</p>
+      <ul>
+        <li
+          v-for="key of keys"
+          :key="key.id"
+        >
+          <span>{{ key.id }}</span>
+          <button
+            class=""
+            @click="store.delete(key.id)"
+          >
+            Remove
+          </button>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useCounterStore } from '../Store';
+import { computed, ComputedRef, defineComponent, ref, Ref } from 'vue';
+import { useKeyStore, ILocalizationKey } from '@/keys';
+import { useCategoryStore } from '@/categories';
 
 // -----------------------------------------------------------------------------
 //  HomePage
@@ -33,10 +76,24 @@ export default defineComponent({
   //  Composition API
   // ---------------------------------------------------------------------------
   setup() {
-    const counter = useCounterStore();
+    const store = useKeyStore();
+    const keyId: Ref<string> = ref('');
+    const categoryStore = useCategoryStore();
+    const currentCategory: Ref<string> = ref('common');
+    const keys: ComputedRef<ILocalizationKey[]> = computed(() => {
+      return categoryStore.getKeys(currentCategory.value);
+    });
+
+    categoryStore.add('Common');
+    categoryStore.add('Other 1');
+    categoryStore.add('Dashboard');
     
     return {
-      counter,
+      store,
+      keyId,
+      keys,
+      categoryStore,
+      currentCategory,
       version: APP_VERSION
     };
   }

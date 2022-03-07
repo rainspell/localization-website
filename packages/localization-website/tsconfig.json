@@ -3,11 +3,23 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "CommonJS",
-    "lib": ["ES2020", "DOM"],
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
     "baseUrl": "./",
     "paths": {
-      "@assets": [
+      "@/assets": [
         "src/assets/*"
+      ],
+      "@/categories": [
+        "src/categories/index.ts"
+      ],
+      "@/keys": [
+        "src/keys/index.ts"
+      ],
+      "@/layouts": [
+        "src/layouts/index.ts"
       ]
     }
   },

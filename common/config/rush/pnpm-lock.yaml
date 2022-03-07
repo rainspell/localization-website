@@ -8,6 +8,7 @@ dependencies:
   '@rainspell/roy-plugin-typescript': 0.15.0_@rainspell+roy@0.8.2
   '@rainspell/utils': 0.8.1
   '@rush-temp/localization-website': file:projects/localization-website.tgz
+  '@rush-temp/vue-app-template': file:projects/vue-app-template.tgz
   '@vitejs/plugin-vue': 2.2.2_vite@2.8.4+vue@3.2.31
   '@vue/compiler-sfc': 3.2.31
   autoprefixer: 10.4.2_postcss@8.4.6
@@ -7114,6 +7115,27 @@ packages:
       integrity: sha512-uN9Kst0wUJWN6W34pLQ9EeUSFf5EuCFOTlxKXVVP3ja/MUWxPUg0x2KADo8S0WC31qicvIulTmuzm79GkfeOeQ==
       tarball: file:projects/localization-website.tgz
     version: 0.0.0
+  file:projects/vue-app-template.tgz:
+    dependencies:
+      '@rainspell/roy': 0.8.2
+      '@rainspell/roy-plugin-typescript': 0.15.0_@rainspell+roy@0.8.2
+      '@rainspell/utils': 0.8.1
+      '@vitejs/plugin-vue': 2.2.2_vite@2.8.4+vue@3.2.31
+      '@vue/compiler-sfc': 3.2.31
+      autoprefixer: 10.4.2_postcss@8.4.6
+      pinia: 2.0.11_vue@3.2.31
+      postcss: 8.4.6
+      stylelint: 14.1.0
+      tailwindcss: 3.0.23_autoprefixer@10.4.2
+      vite: 2.8.4
+      vue: 3.2.31
+      vue-router: 4.0.12_vue@3.2.31
+    dev: false
+    name: '@rush-temp/vue-app-template'
+    resolution:
+      integrity: sha512-A5RoiJI+MABvmN5VnoS+H45qCgPAVGch9NXOjAAuDAK2eULAEahZPnhR5VmxPhBjrP31cVd/To/uBN2ds2kD4w==
+      tarball: file:projects/vue-app-template.tgz
+    version: 0.0.0
 registry: ''
 specifiers:
   '@rainspell/iris': 0.3.2
@@ -7125,6 +7147,7 @@ specifiers:
   '@rainspell/roy-plugin-typescript': ~0.15.0
   '@rainspell/utils': ~0.8.1
   '@rush-temp/localization-website': file:./projects/localization-website.tgz
+  '@rush-temp/vue-app-template': file:./projects/vue-app-template.tgz
   '@vitejs/plugin-vue': ~2.2.0
   '@vue/compiler-sfc': ~3.2.31
   autoprefixer: ~10.4.2

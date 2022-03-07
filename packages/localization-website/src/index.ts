@@ -1,9 +1,9 @@
 import './assets/index.css';
 
 import { App as VueApp, createApp } from 'vue';
-import { createWebHistory, createRouter, Router } from 'vue-router';
+import { Router } from 'vue-router';
 import { createPinia } from 'pinia';
-import Home from './pages/HomePage.vue';
+import { createRouter } from './Router';
 import App from './App.vue';
 
 /**
@@ -11,16 +11,7 @@ import App from './App.vue';
  */
 async function main(): Promise<void> {
   const app: VueApp = createApp(App);
-  const router: Router = createRouter({
-    history: createWebHistory(),
-    routes: [
-      {
-        path: '/',
-        name: 'home',
-        component: Home
-      }
-    ]
-  });
+  const router: Router = createRouter();
   
   app.use(router);
   app.use(createPinia());
